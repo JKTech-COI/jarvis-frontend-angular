@@ -369,8 +369,8 @@
         </tr>
 
         <div class="scrollable-accordion">
-          <mat-accordion class="accordion py-0">
-            <table>
+          <mat-accordion class=" py-0">
+            <table style="width: 100%;">
               <ng-container *ngFor="let section of sections">
                 <ng-container *ngIf="groupedData[section] && groupedData[section].length > 0">
                   <tr>
@@ -503,7 +503,7 @@
 
         <div class="scrollable-accordion">
           <mat-accordion class=" py-0">
-            <table>
+            <table style="width: 100%;">
               <tr *ngFor="let data of Dataset" class="mt-2 ">
                 <div class="tick-mark mr-1" *ngIf="selected">
                   <span>&#10003;</span>
