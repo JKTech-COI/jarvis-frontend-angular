@@ -84,11 +84,11 @@
                     </div>
                     <br>
                     <div class="d-flex flex-row px-1 pt-1" width="100%">
-                      <div class="btn-grp pr-1 icon-glow inside_icon1" width="16.7%"> <a aria-placeholder="View Url" target="_blank"
+                      <div class="btn-grp pr-1 icon-glow inside_icon1" width="16.7%"> <a aria-placeholder="View" target="_blank"
                           href={{data.solutionViewUrl}}> <img src="assets\_WatchIcon_.png" class="inside_icons"
                             alt="Watch-Icon"></a></div>
 
-                      <div class="btn-grp px-2 icon-glow inside_icon1" width="16.7%"> <a aria-placeholder="Run Url" target="_blank"
+                      <div class="btn-grp px-2 icon-glow inside_icon1" width="16.7%"> <a aria-placeholder="Run" target="_blank"
                           href={{data.solutionRunUrl}}> <img src="assets\_EditorUnlinkIcon_.png" class="inside_icons"
                             alt="run-Icon"></a> </div>
 
@@ -204,7 +204,7 @@
                     <br>
                     <br>
                     <div class="d-flex flex-row px-1 pt-1" width="100%">
-                      <div class="btn-grp pr-3 icon-glow" width="25%"> <a aria-placeholder="Style Url" target="_blank"
+                      <div class="btn-grp pr-3 icon-glow" width="25%"> <a aria-placeholder="Style" target="_blank"
                           href={{data.frontendStylesUrl}}> <img src="assets\_WatchIcon_.png" alt="Watch-Icon"
                             class="inside_icons"></a> </div>
 
@@ -308,7 +308,7 @@
                     <br>
                     <div class="d-flex flex-row px-1 pt-1" width="100%">
                       <div class="btn-grp pr-3 icon-glow" width="25%">
-                        <a aria-placeholder="View Url" target="_blank" href={{data.pipelineViewUrl}}>
+                        <a aria-placeholder="View" target="_blank" href={{data.pipelineViewUrl}}>
                           <img src="assets\_WatchIcon_.png" alt="Watch-Icon" class="inside_icons"></a>
                       </div>
 
@@ -434,11 +434,11 @@
                         </div>
                         <br>
                         <div class="d-flex flex-row px-1 pt-1" width="100%">
-                          <div class="btn-grp pl-1 pr-3 icon-glow" width="20%"> <a aria-placeholder="View Url" target="_blank"
+                          <div class="btn-grp pl-1 pr-3 icon-glow" width="20%"> <a aria-placeholder="View" target="_blank"
                               href={{data.modelViewUrl}}> <img src="assets\_WatchIcon_.png" alt="Watch-Icon"
                                 class="inside_icons"></a>
                           </div>
-                          <div class="btn-grp pl-2 pr-3 icon-glow" width="20%"> <a aria-placeholder="Run Url" target="_blank"
+                          <div class="btn-grp pl-2 pr-3 icon-glow" width="20%"> <a aria-placeholder="Run" target="_blank"
                               href={{data.modelRunUrl}}>
                               <img src="assets\_EditorUnlinkIcon_.png" alt="Watch-Icon" class="inside_icons"></a>
                           </div>
@@ -566,7 +566,7 @@
 
                     <br>
                     <div class="d-flex flex-row px-1 pt-1" width="100%">
-                      <div class="btn-grp px-1 icon-glow" width="25%"> <a aria-placeholder="View Url" target="_blank"
+                      <div class="btn-grp px-1 icon-glow" width="25%"> <a aria-placeholder="View" target="_blank"
                           href={{data.datasetUrl}}>
                           <img src="assets\_WatchIcon_.png" alt="Watch-Icon" class="inside_icons"></a>
                       </div>
@@ -683,14 +683,14 @@
             <div class="d-flex flex-row m-3">
               <div class="ml-3" style="min-width:35vw">
                 <label>Frontend</label>
-                <ng-multiselect-dropdown [placeholder]="'Frontend'" [settings]="dropdownSettings3" [data]="Frontend"
+                <ng-multiselect-dropdown [placeholder]="'Select Frontend'" [settings]="dropdownSettings3" [data]="Frontend"
                   [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event,'frontend')"
                   (onSelectAll)="onSelectAll($event,'frontend')">
                 </ng-multiselect-dropdown>
               </div>
               <div class="px-3" style="min-width:35vw; background-color: #fff;">
                 <label>Pipeline</label>
-                <ng-multiselect-dropdown [placeholder]="'Pipeline'" [settings]="dropdownSettings2" [data]="pipeline"
+                <ng-multiselect-dropdown [placeholder]="'Select Pipeline'" [settings]="dropdownSettings2" [data]="pipeline"
                   [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event,'pipeline')"
                   (onSelectAll)="onSelectAll($event,'pipeline')">
                 </ng-multiselect-dropdown>
@@ -699,14 +699,14 @@
             <div class="d-flex flex-row m-3">
               <div class="ml-3" style="min-width:35vw">
                 <label>Model</label>
-                <ng-multiselect-dropdown class="customClass" [placeholder]="'Model'" [settings]="dropdownSettings"
+                <ng-multiselect-dropdown class="customClass" [placeholder]="'Select Model'" [settings]="dropdownSettings"
                   [data]="Modules" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event,'model')"
                   (onSelectAll)="onSelectAll($event,'model')" style="height: 40px;background-color: white !important;">
                 </ng-multiselect-dropdown>
               </div>
               <div class="px-3" style="min-width:35vw">
                 <label>Dataset</label>
-                <ng-multiselect-dropdown [placeholder]="'Dataset'" [settings]="dropdownSettings1" [data]="Dataset"
+                <ng-multiselect-dropdown [placeholder]="'Select Dataset'" [settings]="dropdownSettings1" [data]="Dataset"
                   [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event,'dataset')"
                   (onSelectAll)="onSelectAll($event,'dataset')">
                 </ng-multiselect-dropdown>
@@ -733,7 +733,7 @@
                 </mat-form-field> </div>
               <div class="px-3"> <mat-form-field style="min-width:35vw" class="example-full-width" appearance="outline">
                   <!-- <mat-label style="font-size:16px;margin-left: 10px;"><b>Pipeline View URL</b></mat-label> -->
-                  <input id="inputStyle" matInput placeholder="Frondend View URL" formControlName="frontendStyle_url">
+                  <input id="inputStyle" matInput placeholder="Add Frondend Style" formControlName="frontendStyle_url">
                 </mat-form-field> </div>
             </div>
             <!-- <div class="d-flex flex-row m-3">
