@@ -80,11 +80,16 @@ mat-expansion-panel{
   height: 40px;
   overflow: hidden;
 }
+.limitTextHeight1{
+  height: 30px;
+  overflow: hidden;
+}
 .readbutton{
   text-align: start !important;
 }
 .desc{
   background-color: #F7F7F8 !important;
+  
 }
 .panels{
   display: inline-flex;
@@ -142,9 +147,6 @@ mat-expansion-panel{
 
 .tick-mark{
   position: absolute;
-  // z-index: 1;
-  
-  
 }
 .tick-mark span{
   font-size: 20px;

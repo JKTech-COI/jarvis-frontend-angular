@@ -75,13 +75,14 @@
                       <div class="mt-3" [ngClass]="{'limitTextHeight': isReadMore}"
                         style="color: #3F4E6C;text-align: start;"><label style="color: #3F4E6C;"><b>DESCRIPTION: </b>
                         </label><br>
-                        <div>{{!isReadMore ? this.data.solutionDescription:truncateText(this.data.solutionDescription,
+                        <div [style.white-space]="'pre-wrap'" [style.word-wrap]="'break-word'">{{!isReadMore ? this.data.solutionDescription:truncateText(this.data.solutionDescription,
                           33)}}</div>
                       </div>
 
-                      <label class=" readbutton" (click)="showText()" *ngIf="data.solutionDescription.length>25"
+                      <label class=" readbutton" (click)="showText()" *ngIf="data.solutionDescription.length>35"
                         style="color: #119446;"><b>{{ isReadMore ? 'Read More': 'Read Less' }}</b></label>
                     </div>
+                    
                     <br>
                     <div class="d-flex flex-row px-1 pt-1" width="100%">
                       <div class="btn-grp pr-1 icon-glow inside_icon1" width="16.7%"> <a aria-placeholder="View" target="_blank"
@@ -131,6 +132,7 @@
         </div>
 
       </div>
+      
       <!-- ---------------------------Fontend Jar-------------------------------------------------------------------->
       <div class="jar">
         <table class="mt-2">
@@ -195,11 +197,11 @@
                       </mat-panel-title>
                     </mat-expansion-panel-header>
 
-                    <div class="mt-3" [ngClass]="{'limitTextHeight': isReadMore}" style="color: #3F4E6C;"><label>
+                    <div class="mt-3" [ngClass]="{'limitTextHeight': isReadMore4}" style="color: #3F4E6C;word-wrap: break-word;white-space: pre-line;"><label>
                         <b>DESCRIPTION:</b>
                       </label> <br> {{data.frontendDescription}}</div>
-                    <label type="button" *ngIf="data.frontendDescription.length>20" (click)="showText()"
-                      style="color: #119446;"><b> {{ isReadMore ? 'Read More': 'Read Less' }}</b>
+                    <label type="button" *ngIf="data.frontendDescription.length>20" (click)="showText1()"
+                      style="color: #119446;"><b> {{ isReadMore1 ? 'Read More': 'Read Less' }}</b>
                     </label>
                     <br>
                     <br>
@@ -230,118 +232,7 @@
           </mat-accordion>
         </div>
       </div>
-      <!-- ----------------------------Pipeline Jar------------------------------------------------------------------->
-      <div class="jar">
-        <table class="mt-2">
-          <tr width="100%">
-            <td align="center" width="25%" > <img class="jar_icon" src="assets\icon_3.png" alt=""> </td>
-            <td align="left" width="65%" >
-              <h3 id="text">PIPELINE JAR</h3>
-              <p id="text1">E2E TASK WORKFLOWS</p>
-            </td>
-            <td align="right" width="10%" >
-              <div id="div2">
-                <img class="add_icon" src="assets\_AddCircleIcon_.png" alt="" (click)="SelectJar('Pipeline')"
-                  data-toggle="modal" data-target="#myModal">
-              </div>
-            </td>
-          </tr>
-        </table>
-        <tr class="input-group pb-3 pt-3">
-          <span class="input-group-append">
-            <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
-          </span>
-          <input class="form-control py-2 border-right-0 border" style="width:100px" type="search"
-            [(ngModel)]="Searchvalue2" placeholder="search" id="example-search-input5" (keyup)="filterPipeline()">
-        </tr>
-
-        <div class="scrollable-accordion">
-          <mat-accordion class=" py-0">
-            <table style="width: 100%;">
-              <tr *ngFor="let data of pipeline" class="mt-2">
-                <div class="tick-mark" *ngIf="selected">
-                  <span>&#10003;</span>
-                </div>
-                <td class="panelcell">
-                  
-                  <mat-expansion-panel (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false"
-                    [ngClass]="panelOpenState2 ? 'blue-border' : 'normal-border'" [expanded]="isPanelExpanded"
-                    class="py-0 my-0">
-                    <mat-expansion-panel-header class="specific-class">
-                      <mat-panel-title>
-                        <div class="d-flex flex-row mt-3 mb-3">
-                          <div class="paneltitle"><b>{{panelOpenState2?data.pipelineName:truncateText(data.pipelineName,23)}}</b></div>
-                          <div class="" (click)="$event.preventDefault();$event.stopPropagation()"><img src="assets\3dots.png" alt="dots-Icon" [matMenuTriggerFor]="menu"></div>
-                          <!-- [matMenuTriggerFor]="menu" -->
-                        </div>
-                        <mat-menu #menu="matMenu" class="d-flex flex-row">
-                          <div>
-                            <label mat-menu-item aria-hidden="false" aria-label="Example home icon"
-                              style="color:#3F4E6C;cursor: pointer;margin-right: 10px;" fontIcon="edit"
-                              (click)="editData(data,'Pipeline')" (click)="getDataSolution(data)" data-toggle="modal"
-                              data-target="#exampleModal">edit
-                            </label>
-                          </div>
-                          <div>
-                            <label mat-menu-item matBadgeColor="warn" aria-hidden="false" aria-label="Example home icon"
-                              style="color:#576582;cursor: pointer; " fontIcon="delete" data-toggle="modal"
-                              data-target="#confModal" (click)="deleteId(data,'Pipeline')">delete
-                            </label>
-                          </div>
-                        </mat-menu>
-                      </mat-panel-title>
-                    </mat-expansion-panel-header>
-
-                    <div class="chip-container" >
-                      <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"> 
-                        <mat-chip *ngFor="let tag of data.pipelineTags.split(',')" class="example-box" cdkDrag> {{tag.trim()}}</mat-chip>
-                      </mat-chip-list>
-                    </div>
-
-                    <div class="mt-3">
-                      <div [ngClass]="{'limitTextHeight': isReadMore1}" style="color: #3F4E6C;">
-                        <label style="color: #3F4E6C;"><b>DESCRIPTION:</b></label> <br>{{data.pipelineDescription}}
-                      </div>
-                      <label type="button" (click)="showText1()" *ngIf="data.pipelineDescription.length>20"
-                        style="color: #119446"><b> {{ isReadMore1 ? 'Read More': 'ReadLess'}}</b></label>
-                    </div>
-                    <br>
-                    <div class="d-flex flex-row px-1 pt-1" width="100%">
-                      <div class="btn-grp pr-3 icon-glow" width="25%">
-                        <a aria-placeholder="View" target="_blank" href={{data.pipelineViewUrl}}>
-                          <img src="assets\_WatchIcon_.png" alt="Watch-Icon" class="inside_icons"></a>
-                      </div>
-
-                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%"> <a aria-placeholder="Edit">
-                          <mat-icon aria-hidden="false" aria-label="Example home icon"
-                            style="color:#3F4E6C;cursor: pointer;" fontIcon="edit" data-toggle="modal"
-                            data-target="#exampleModal" (click)="editData(data,'Pipeline')"></mat-icon></a>
-                      </div>
-
-                      <!-- <div class="btn-grp pl-2 pr-1 icon-glow"  > <a aria-placeholder="Add Cart"><mat-icon  aria-hidden="false" aria-label="Example home icon"
-                  style="color:white;cursor: pointer;" fontIcon="add_shopping_cart" ></mat-icon></a>
-               </div> -->
-
-                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%"> <a aria-placeholder="Delete">
-                          <mat-icon aria-hidden="false" aria-label="Example home icon"
-                            style="color:#3F4E6C;cursor: pointer;" fontIcon="delete" data-toggle="modal"
-                            data-target="#confModal" (click)="deleteId(data,'Pipeline')"></mat-icon></a>
-                      </div>
-
-                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%">
-                        <a aria-placeholder="Add Cart"><img src="assets\ShoppingCart.png" alt="cart-Icon"
-                            (click)="addtoCart(data)" class="inside_icons"></a>
-                      </div>
-
-                    </div>
-                  </mat-expansion-panel>
-                </td>
-              </tr>
-            </table>
-          </mat-accordion>
-        </div>
-
-      </div>
+      
       <!-- ----------------------------Model Jar---------------------------------------------------------------------->
       <div class="jar">
         <table class="mt-2">
@@ -471,6 +362,118 @@
                   </tr>
                 </ng-container>
               </ng-container>
+            </table>
+          </mat-accordion>
+        </div>
+
+      </div>
+      <!-- ----------------------------Pipeline Jar------------------------------------------------------------------->
+      <div class="jar">
+        <table class="mt-2">
+          <tr width="100%">
+            <td align="center" width="25%" > <img class="jar_icon" src="assets\icon_3.png" alt=""> </td>
+            <td align="left" width="65%" >
+              <h3 id="text">PIPELINE JAR</h3>
+              <p id="text1">E2E TASK WORKFLOWS</p>
+            </td>
+            <td align="right" width="10%" >
+              <div id="div2">
+                <img class="add_icon" src="assets\_AddCircleIcon_.png" alt="" (click)="SelectJar('Pipeline')"
+                  data-toggle="modal" data-target="#myModal">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <tr class="input-group pb-3 pt-3">
+          <span class="input-group-append">
+            <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+          </span>
+          <input class="form-control py-2 border-right-0 border" style="width:100px" type="search"
+            [(ngModel)]="Searchvalue2" placeholder="search" id="example-search-input5" (keyup)="filterPipeline()">
+        </tr>
+
+        <div class="scrollable-accordion">
+          <mat-accordion class=" py-0">
+            <table style="width: 100%;">
+              <tr *ngFor="let data of pipeline" class="mt-2">
+                <div class="tick-mark" *ngIf="selected">
+                  <span>&#10003;</span>
+                </div>
+                <td class="panelcell">
+                  
+                  <mat-expansion-panel (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false"
+                    [ngClass]="panelOpenState2 ? 'blue-border' : 'normal-border'" [expanded]="isPanelExpanded"
+                    class="py-0 my-0">
+                    <mat-expansion-panel-header class="specific-class">
+                      <mat-panel-title>
+                        <div class="d-flex flex-row mt-3 mb-3">
+                          <div class="paneltitle"><b>{{panelOpenState2?data.pipelineName:truncateText(data.pipelineName,23)}}</b></div>
+                          <div class="" (click)="$event.preventDefault();$event.stopPropagation()"><img src="assets\3dots.png" alt="dots-Icon" [matMenuTriggerFor]="menu"></div>
+                          <!-- [matMenuTriggerFor]="menu" -->
+                        </div>
+                        <mat-menu #menu="matMenu" class="d-flex flex-row">
+                          <div>
+                            <label mat-menu-item aria-hidden="false" aria-label="Example home icon"
+                              style="color:#3F4E6C;cursor: pointer;margin-right: 10px;" fontIcon="edit"
+                              (click)="editData(data,'Pipeline')" (click)="getDataSolution(data)" data-toggle="modal"
+                              data-target="#exampleModal">edit
+                            </label>
+                          </div>
+                          <div>
+                            <label mat-menu-item matBadgeColor="warn" aria-hidden="false" aria-label="Example home icon"
+                              style="color:#576582;cursor: pointer; " fontIcon="delete" data-toggle="modal"
+                              data-target="#confModal" (click)="deleteId(data,'Pipeline')">delete
+                            </label>
+                          </div>
+                        </mat-menu>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div class="chip-container" >
+                      <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"> 
+                        <mat-chip *ngFor="let tag of data.pipelineTags.split(',')" class="example-box" cdkDrag> {{tag.trim()}}</mat-chip>
+                      </mat-chip-list>
+                    </div>
+
+                    <div class="mt-3">
+                      <div [ngClass]="{'limitTextHeight': isReadMore1}" style="color: #3F4E6C;">
+                        <label style="color: #3F4E6C;"><b>DESCRIPTION:</b></label> <br>{{data.pipelineDescription}}
+                      </div>
+                      <label type="button" (click)="showText1()" *ngIf="data.pipelineDescription.length>20"
+                        style="color: #119446"><b> {{ isReadMore1 ? 'Read More': 'ReadLess'}}</b></label>
+                    </div>
+                    <br>
+                    <div class="d-flex flex-row px-1 pt-1" width="100%">
+                      <div class="btn-grp pr-3 icon-glow" width="25%">
+                        <a aria-placeholder="View" target="_blank" href={{data.pipelineViewUrl}}>
+                          <img src="assets\_WatchIcon_.png" alt="Watch-Icon" class="inside_icons"></a>
+                      </div>
+
+                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%"> <a aria-placeholder="Edit">
+                          <mat-icon aria-hidden="false" aria-label="Example home icon"
+                            style="color:#3F4E6C;cursor: pointer;" fontIcon="edit" data-toggle="modal"
+                            data-target="#exampleModal" (click)="editData(data,'Pipeline')"></mat-icon></a>
+                      </div>
+
+                      <!-- <div class="btn-grp pl-2 pr-1 icon-glow"  > <a aria-placeholder="Add Cart"><mat-icon  aria-hidden="false" aria-label="Example home icon"
+                  style="color:white;cursor: pointer;" fontIcon="add_shopping_cart" ></mat-icon></a>
+               </div> -->
+
+                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%"> <a aria-placeholder="Delete">
+                          <mat-icon aria-hidden="false" aria-label="Example home icon"
+                            style="color:#3F4E6C;cursor: pointer;" fontIcon="delete" data-toggle="modal"
+                            data-target="#confModal" (click)="deleteId(data,'Pipeline')"></mat-icon></a>
+                      </div>
+
+                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%">
+                        <a aria-placeholder="Add Cart"><img src="assets\ShoppingCart.png" alt="cart-Icon"
+                            (click)="addtoCart(data)" class="inside_icons"></a>
+                      </div>
+
+                    </div>
+                  </mat-expansion-panel>
+                </td>
+              </tr>
             </table>
           </mat-accordion>
         </div>

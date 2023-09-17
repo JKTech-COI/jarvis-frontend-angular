@@ -101,7 +101,7 @@ export class PortalComponent implements OnInit {
     this.getFrontend();
     this.getSolution();
 
-   this.isPanelOpen;
+  //  this.isPanelOpen;
 
  //------------------------------------------------------------------------------------------------
 }
@@ -169,6 +169,10 @@ openHtmlFile() {
     // this.http.get("http://3.111.229.37:3000/clearml/pipeline").subscribe(response => {
 
     // })
+  }
+
+  replaceNewlinesWithBr(text: string): string {
+    return text.replace(/\n/g, '<br>');
   }
   arrowLink2: any;
   arrowLink3: any;
@@ -1040,9 +1044,9 @@ debugger;
   isReadMore1 = true;
   isReadMore2 = true;
   isReadMore3 = true;
+  isReadMore4 = true;
   showText() {
      this.isReadMore = !this.isReadMore;
-
   }
   showText1(){
     this.isReadMore1 = !this.isReadMore1;
@@ -1052,6 +1056,9 @@ debugger;
   }
   showText3(){
     this.isReadMore3 = !this.isReadMore3;
+  }
+  showText4(){
+    this.isReadMore4 = !this.isReadMore4;
   }
 
   // Jars: any = [{ id: 1, name: 'Model' }, { id: 2, name: 'Dataset' }, { id: 3, name: 'Pipeline' }]
