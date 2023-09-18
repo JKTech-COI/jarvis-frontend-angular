@@ -101,6 +101,7 @@ export class PortalComponent implements OnInit {
     this.getFrontend();
     this.getSolution();
 
+    this.initialTruncatedText = this.getTruncatedDescription(this.data.solutionDescription);
   //  this.isPanelOpen;
 
  //------------------------------------------------------------------------------------------------
@@ -169,6 +170,24 @@ openHtmlFile() {
     // this.http.get("http://3.111.229.37:3000/clearml/pipeline").subscribe(response => {
 
     // })
+  }
+  initialTruncatedText: string = '';
+
+  getDisplayDescription(): string {
+    if (this.isReadMore) {
+      return this.data.solutionDescription;
+    } else {
+      return this.initialTruncatedText;
+    }
+  }
+
+  toggleReadMore() {
+    this.isReadMore = !this.isReadMore;
+  }
+
+  getTruncatedDescription(data: string): string {
+    // Adjust the length (20 characters) as needed
+    return data.length > 25 ? data.substring(0, 25) + '...' : data;
   }
 
   replaceNewlinesWithBr(text: string): string {
@@ -1215,12 +1234,24 @@ debugger;
 //   }
 
   // @Output() CartEvent=new EventEmitter();
+
+  transform(text: string, maxLength: number): string {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  }
+
+
+
 badgeCount: any;
 cart: any=[];
 dcart: any=[];
 mcart: any=[];
 pcart: any=[];
 fcart: any=[];
+
+
 
   addtoCart(data: any){
     debugger;

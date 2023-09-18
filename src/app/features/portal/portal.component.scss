@@ -207,3 +207,18 @@ mat-expansion-panel{
 [aria-placeholder]:hover:after {
   opacity: 1;
 }
+
+.desc {
+  /* Add this to prevent overflow */
+  overflow: hidden;
+  /* Add this to limit the width of the panel */
+  max-width: 100%; /* You can adjust the max-width as needed */
+}
+
+.desc a {
+  /* Add this to style hyperlinks within the description */
+  color: #0077cc; /* You can adjust the link color as needed */
+  text-decoration: underline;
+  word-break: break-all; /* Add this to break long URLs */
+  white-space: normal; /* Add this to allow wrapping within links */
+}
