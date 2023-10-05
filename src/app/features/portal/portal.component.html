@@ -240,25 +240,37 @@
                     </label>
                     <br>
                     <br>
+
                     <div class="d-flex flex-row px-1 pt-1" width="100%">
-                      <div class="btn-grp pr-3 icon-glow" width="25%"> <a aria-placeholder="Style" target="_blank"
+                      <div class="btn-grp pr-3 icon-glow" width="18%"> <a aria-placeholder="Style" target="_blank"
                           href={{data.frontendStylesUrl}}> <img src="assets\_WatchIcon_.png" alt="Watch-Icon"
                             class="inside_icons"></a> </div>
 
-                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%"> <a aria-placeholder="Edit"><mat-icon aria-hidden="false"
+                      <div class="btn-grp pl-3 pr-3 icon-glow" width="18%"> <a aria-placeholder="Edit"><mat-icon aria-hidden="false"
                             aria-label="Example home icon" style="color:#3F4E6C;cursor: pointer;" fontIcon="edit"
                             (click)="editData(data,'Frontend')" (click)="getDataFrontend(data)" data-toggle="modal"
                             data-target="#exampleModal"></mat-icon></a>
                       </div>
 
-                      <div class="btn-grp pl-4 pr-3 icon-glow" width="25%"> <a aria-placeholder="Delete"><mat-icon aria-hidden="false"
+                      <div class="btn-grp pl-3 pr-3 icon-glow" width="18%"> <a aria-placeholder="Delete"><mat-icon aria-hidden="false"
                             aria-label="Example home icon" style="color:#3F4E6C;cursor: pointer;"
                             fontIcon="delete" data-toggle="modal" data-target="#confModal"
                             (click)="deleteId(data,'Frontend')"></mat-icon></a> </div>
 
-                      <div class="btn-grp pl-4" width="25%"> <a aria-placeholder="Add Cart"><img src="assets\ShoppingCart.png" alt="cart-Icon"
+                      <!-- <div class="btn-grp pr-3 icon-glow" width="18%"> <a aria-placeholder="Style" target="_blank"
+                              href={{data.frontendStylesUrl}}> <mat-icon>developer_mode</mat-icon></a> 
+                      </div> -->
+                      <div class="btn-grp pl-3 pr-3  icon-glow" width="18%"> <a aria-placeholder="Generate Code" 
+                        href={{data.frontendRunUrl}}><mat-icon aria-hidden="false"
+                        aria-label="Example home icon" style="color:#3F4E6C;cursor: pointer;" fontIcon="developer_mode"
+                         ></mat-icon></a>
+                    </div>
+
+                      <div class="btn-grp pl-3" width="18%"> <a aria-placeholder="Add Cart"><img src="assets\ShoppingCart.png" alt="cart-Icon"
                               class="inside_icons"></a> </div>
                     </div>
+
+                    
                   </mat-expansion-panel>
 
                 </td>
@@ -771,7 +783,7 @@
                 </mat-form-field> </div>
               <div class="px-3"> <mat-form-field style="min-width:35vw" class="example-full-width" appearance="outline">
                   <!-- <mat-label style="font-size:16px;margin-left: 10px;"><b>Pipeline View URL</b></mat-label> -->
-                  <input id="inputStyle" matInput placeholder="Add Frondend Style" formControlName="frontendStyle_url">
+                  <input id="inputStyle" matInput placeholder="Add Frondend Style Url" formControlName="frontendStyle_url">
                 </mat-form-field> </div>
             </div>
             <!-- <div class="d-flex flex-row m-3">
@@ -781,6 +793,13 @@
                   id="inputStyle" matInput placeholder="Frondend Tags" formControlName="frontendRun_url">
               </mat-form-field> </div>
           </div> -->
+          <div class="d-flex flex-row m-3">
+            <mat-form-field style="min-width:71vw;" class="example-full-width" appearance="outline">
+              <textarea id="textarea" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="2" placeholder="Url to generate code"
+                formControlName="frontendRun_url"></textarea>
+            </mat-form-field>
+            </div>
             <div class="d-flex flex-row m-3">
               <mat-form-field style="min-width:71vw;min-height: 8vh;" class="example-full-width" appearance="outline">
                 <textarea id="textarea" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
@@ -1085,6 +1104,12 @@
                 <mat-label id="subTitle"><b>Frontend Style URL</b></mat-label> <input id="inputStyle" matInput
                   placeholder="View URL" formControlName="frontendStyle_url"> </mat-form-field> </div>
           </div>
+          <div class="d-flex flex-row m-3">
+            <div> <mat-form-field style="min-width:71vw;min-height: 8vh;" class="example-full-width" appearance="outline"> <mat-label
+                id="subTitle"><b>Url for generate code</b></mat-label> <input id="inputStyle" matInput
+                placeholder="Url for generate code" formControlName="frontendRun_url"> </mat-form-field> </div>
+          </div>
+
           <div class="d-flex flex-row m-3">
             <!-- <div> <mat-form-field style="min-width:35vw" class="example-full-width" appearance="outline"> <mat-label
                 id="subTitle"><b>Frontend Run URL</b></mat-label> <input id="inputStyle" matInput
