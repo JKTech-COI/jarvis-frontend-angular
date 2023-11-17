@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const targets = [
-  'http://13.234.148.242:8008',               // 1
+  'http://35.207.211.225:8008',               // 1
   
 ];
 

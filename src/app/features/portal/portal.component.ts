@@ -160,14 +160,14 @@ openHtmlFile() {
   // }
 //---------------------------------------------------------------------------------
 
- // 3.111.229.37
+ // 35.207.211.225
    callCarddata(){
-  //   this.http.get("http://3.111.229.37:3000/clearml/dataset").subscribe(response => {
+  //   this.http.get("http://35.207.211.225:3000/clearml/dataset").subscribe(response => {
 
-  //   })http://3.111.229.37/   13.234.148.242
+  //   })http://35.207.211.225/   13.234.148.242
    }
   callCardpipeline(){
-    // this.http.get("http://3.111.229.37:3000/clearml/pipeline").subscribe(response => {
+    // this.http.get("http://35.207.211.225:3000/clearml/pipeline").subscribe(response => {
 
     // })
   }
@@ -226,7 +226,7 @@ openHtmlFile() {
 
     // let col1=  "solutionName";
     // let col2 = "solutionTags";
-    this.http.post('http://3.111.229.37:3000/search', { search, table})
+    this.http.post('http://35.207.211.225:3000/search', { search, table})
       .subscribe(response => {
 
         this.searchResponse=response;
@@ -240,7 +240,7 @@ openHtmlFile() {
     const search = this.Searchvalue3;
     const table =  'Frontends';
     // let col1=  "frontendName";
-    this.http.post('http://3.111.229.37:3000/search', { search, table})
+    this.http.post('http://35.207.211.225:3000/search', { search, table})
       .subscribe(response => {
         this.searchResponse=response;
         this.Frontend = this.searchResponse.data;
@@ -254,7 +254,7 @@ openHtmlFile() {
     const table =  'Pipelines';
     // let col1=  "pipelineName";
     // let col2 = "pipelineTags";
-    this.http.post('http://3.111.229.37:3000/search', { search, table})
+    this.http.post('http://35.207.211.225:3000/search', { search, table})
       .subscribe(response => {
         this.searchResponse=response;
         this.pipeline = this.searchResponse.data;
@@ -269,7 +269,7 @@ openHtmlFile() {
     const table =  'Models';
     // let col1=  "modelName";
     // let col2 = "modelTags";
-    this.http.post('http://3.111.229.37:3000/search', { search, table})
+    this.http.post('http://35.207.211.225:3000/search', { search, table})
       .subscribe(response => {
         this.searchResponse=response;
         this.Modules = this.searchResponse.data;
@@ -284,7 +284,7 @@ openHtmlFile() {
     const table =  'Data';
     // let col1=  "datasetName";
 
-    this.http.post('http://3.111.229.37:3000/search', { search, table})
+    this.http.post('http://35.207.211.225:3000/search', { search, table})
       .subscribe(response => {
         this.searchResponse=response;
         this.Dataset = this.searchResponse.data;
@@ -371,7 +371,7 @@ openHtmlFile() {
     if(jars=='dataset'){
       const dataId=data.id.toString();
       // this.editdropdowndata.push((data.id).toString());
-      this.http.post('http://3.111.229.37:3000/solution/deleteDynamic', { solutionId, dataId})
+      this.http.post('http://35.207.211.225:3000/solution/deleteDynamic', { solutionId, dataId})
       .subscribe(response => {
         this.storeResponse=response;
         alert(this.storeResponse.message);
@@ -381,7 +381,7 @@ openHtmlFile() {
     }else if(jars=='model'){
       const modelId=data.id.toString();
       // this.editdropdownmodel.push((data.id).toString());
-      this.http.post('http://3.111.229.37:3000/solution/deleteDynamic', { solutionId, modelId})
+      this.http.post('http://35.207.211.225:3000/solution/deleteDynamic', { solutionId, modelId})
       .subscribe(response => {
         this.storeResponse=response;
         alert(this.storeResponse.message);
@@ -392,7 +392,7 @@ openHtmlFile() {
     }else if(jars=='pipeline'){
       const pipelineId=data.id.toString();
       // this.editdropdownpipeline.push((data.id).toString());
-      this.http.post('http://3.111.229.37:3000/solution/deleteDynamic', { solutionId, pipelineId})
+      this.http.post('http://35.207.211.225:3000/solution/deleteDynamic', { solutionId, pipelineId})
       .subscribe(response => {
         this.storeResponse=response;
         alert(this.storeResponse.message);
@@ -403,7 +403,7 @@ openHtmlFile() {
     }else if(jars=='frontend'){
       const frontendId=data.id.toString();
       // this.editdropdownfrontend.push((data.id).toString());
-      this.http.post('http://3.111.229.37:3000/solution/deleteDynamic', { solutionId, frontendId})
+      this.http.post('http://35.207.211.225:3000/solution/deleteDynamic', { solutionId, frontendId})
       .subscribe(response => {
         this.storeResponse=response;
         alert(this.storeResponse.message);
@@ -534,7 +534,7 @@ openHtmlFile() {
     const modelTags = this.formdata2.controls['model_tags'].value;
     const modelSeperator=this.formdata2.controls['separator'].value;
     const modelDescription = this.formdata2.controls['desc'].value;
-    this.http.post('http://3.111.229.37:3000/model/insertModel', { modelName, modelViewUrl, modelRunUrl, modelTags,modelSeperator, modelDescription })
+    this.http.post('http://35.207.211.225:3000/model/insertModel', { modelName, modelViewUrl, modelRunUrl, modelTags,modelSeperator, modelDescription })
       .subscribe(response => {
         this.formdata2.reset();
         console.log(response);
@@ -557,7 +557,7 @@ openHtmlFile() {
     const modelRunUrl = this.formdata6.controls['run_url'].value;
     const modelViewUrl = this.formdata6.controls['view_url'].value;
     const modelSeperator=this.formdata6.controls['modelseparator'].value;
-    this.http.post('http://3.111.229.37:3000/model/editModel', { modelName, modelTags, modelId, modelDescription, modelRunUrl, modelViewUrl,modelSeperator })
+    this.http.post('http://35.207.211.225:3000/model/editModel', { modelName, modelTags, modelId, modelDescription, modelRunUrl, modelViewUrl,modelSeperator })
       .subscribe(response => {
 
         console.log('res', response);
@@ -573,7 +573,7 @@ openHtmlFile() {
 
     const modelId=this.modelId;
 
-    this.http.post('http://3.111.229.37:3000/model/deleteModel', { modelId })
+    this.http.post('http://35.207.211.225:3000/model/deleteModel', { modelId })
       .subscribe(response => {
         console.log(response);
         this.storeResponse = response;
@@ -588,7 +588,7 @@ openHtmlFile() {
   dumbb2: any;
 
   getModel() {
-    this.http.post('http://3.111.229.37:3000/model/retrieveModels', {})
+    this.http.post('http://35.207.211.225:3000/model/retrieveModels', {})
       .subscribe(response => {
         this.dumbb = response;
         this.Modules = this.dumbb.data;
@@ -611,7 +611,7 @@ openHtmlFile() {
     const datasetUrl = this.formdata.controls['url'].value;
     const datasetTags=this.formdata.controls['dataset_tag'].value;
     const datasetType='';
-    this.http.post('http://3.111.229.37:3000/data/insertData', {datasetUrl, datasetName, datasetId, datasetVersion,datasetTags,datasetType, datasetDescription })
+    this.http.post('http://35.207.211.225:3000/data/insertData', {datasetUrl, datasetName, datasetId, datasetVersion,datasetTags,datasetType, datasetDescription })
       .subscribe(response => {
         debugger;
         this.formdata.reset();
@@ -640,7 +640,7 @@ openHtmlFile() {
 
 
     // console.log("datasetId", datasetName, datasetId, datasetVersion, datasetDescription)
-    this.http.post('http://3.111.229.37:3000/data/editDataset', { datasetName, datasetId, datasetVersion, datasetDescription,datasetTags,datasetType, datasetUrl,id })
+    this.http.post('http://35.207.211.225:3000/data/editDataset', { datasetName, datasetId, datasetVersion, datasetDescription,datasetTags,datasetType, datasetUrl,id })
       .subscribe(response => {
         console.log(response);
         this.storeResponse = response;
@@ -655,7 +655,7 @@ openHtmlFile() {
 
     const datasetId=this.datasetId;
 
-    this.http.post('http://3.111.229.37:3000/data/deleteDataset', { datasetId })
+    this.http.post('http://35.207.211.225:3000/data/deleteDataset', { datasetId })
       .subscribe(response => {
         debugger;
         console.log(response);
@@ -667,7 +667,7 @@ openHtmlFile() {
       );
   }
   getdataset() {
-    this.http.post('http://3.111.229.37:3000/data/retrieveDatasets', {})
+    this.http.post('http://35.207.211.225:3000/data/retrieveDatasets', {})
       .subscribe(response => {
         this.dumbb1 = response;
         this.Dataset = this.dumbb1.data;
@@ -683,7 +683,7 @@ openHtmlFile() {
     const pipelineTags=this.formdata8.controls['pipeline_tags'].value;
     const pipelineDescription=this.formdata8.controls['pipeline_description'].value;
 
-    this.http.post('http://3.111.229.37:3000/pipeline/insertPipeline', {pipelineName,pipelineViewUrl,pipelineTags,pipelineDescription })
+    this.http.post('http://35.207.211.225:3000/pipeline/insertPipeline', {pipelineName,pipelineViewUrl,pipelineTags,pipelineDescription })
       .subscribe(response => {
         this.formdata8.reset();
         console.log(response);
@@ -698,7 +698,7 @@ openHtmlFile() {
       );
   }
   getPipeline(){
-    this.http.post('http://3.111.229.37:3000/pipeline/retrievePipelines', {})
+    this.http.post('http://35.207.211.225:3000/pipeline/retrievePipelines', {})
       .subscribe(response => {
         this.dumbb1 = response;
         this.pipeline = this.dumbb1.data;
@@ -716,7 +716,7 @@ openHtmlFile() {
     const pipelineTags=this.formdata8.controls['pipeline_tags'].value;
     const pipelineDescription=this.formdata8.controls['pipeline_description'].value;
 
-    this.http.post('http://3.111.229.37:3000/pipeline/editPipeline', { pipelineId,pipelineName,pipelineViewUrl,pipelineTags,pipelineDescription})
+    this.http.post('http://35.207.211.225:3000/pipeline/editPipeline', { pipelineId,pipelineName,pipelineViewUrl,pipelineTags,pipelineDescription})
       .subscribe(response => {
         console.log(response);
         this.storeResponse = response;
@@ -732,7 +732,7 @@ openHtmlFile() {
   deletePipeline(){
 
     const pipelineId=this.pipelineId;
-    this.http.post('http://3.111.229.37:3000/pipeline/deletePipeline', { pipelineId })
+    this.http.post('http://35.207.211.225:3000/pipeline/deletePipeline', { pipelineId })
       .subscribe(response => {
         console.log(response);
         this.storeResponse = response;
@@ -750,7 +750,7 @@ openHtmlFile() {
     const frontendRunUrl=this.formdata9.controls['frontendRun_url'].value;
     const frontendDescription=this.formdata9.controls['frontend_description'].value;
 
-    this.http.post('http://3.111.229.37:3000/frontend/insertFrontend', {
+    this.http.post('http://35.207.211.225:3000/frontend/insertFrontend', {
       frontendName,
     frontendStylesUrl,
     frontendRunUrl,
@@ -770,7 +770,7 @@ openHtmlFile() {
   }
 
   getFrontend(){
-    this.http.post('http://3.111.229.37:3000/frontend/retrieveFrontends', {})
+    this.http.post('http://35.207.211.225:3000/frontend/retrieveFrontends', {})
       .subscribe(response => {
         this.dumbb1 = response;
         this.Frontend = this.dumbb1.data;
@@ -786,7 +786,7 @@ openHtmlFile() {
     const frontendDescription=this.formdata9.controls['frontend_description'].value;
     const id=this.formdata9.controls['id'].value;
 
-    this.http.post('http://3.111.229.37:3000/frontend/editFrontend', {id,frontendName,
+    this.http.post('http://35.207.211.225:3000/frontend/editFrontend', {id,frontendName,
     frontendStylesUrl,
     frontendRunUrl,
     frontendDescription})
@@ -802,7 +802,7 @@ openHtmlFile() {
 deleteFrontend(){
 
   const id=this.frontendId;
-    this.http.post('http://3.111.229.37:3000/frontend/deleteFrontend', { id })
+    this.http.post('http://35.207.211.225:3000/frontend/deleteFrontend', { id })
       .subscribe(response => {
         console.log(response);
         this.storeResponse = response;
@@ -942,7 +942,7 @@ deleteFrontend(){
     const pipelineId=this.dropdownpipeline;
     const frontendId=this.dropdownfrontend;
       debugger;
-    this.http.post('http://3.111.229.37:3000/solution/insertSolution', { solutionName, solutionViewUrl, solutionTags, solutionDescription, solutionRunUrl,modelId,datasetId,pipelineId,frontendId })
+    this.http.post('http://35.207.211.225:3000/solution/insertSolution', { solutionName, solutionViewUrl, solutionTags, solutionDescription, solutionRunUrl,modelId,datasetId,pipelineId,frontendId })
       .subscribe(response => {
         debugger;
         console.log(response);
@@ -974,7 +974,7 @@ deleteFrontend(){
     const frontendId=this.editdropdownfrontend;
 
     // solutionTags,
-    this.http.post('http://3.111.229.37:3000/solution/editSolution', {solutionId, solutionName, solutionVersion, solutionDescription, solutionRunUrl,solutionViewUrl,solutionTags,frontendId,pipelineId,modelId ,dataId})
+    this.http.post('http://35.207.211.225:3000/solution/editSolution', {solutionId, solutionName, solutionVersion, solutionDescription, solutionRunUrl,solutionViewUrl,solutionTags,frontendId,pipelineId,modelId ,dataId})
       .subscribe(response => {
         debugger;
         console.log(response);
@@ -995,7 +995,7 @@ debugger;
 
     const solutionId=this.solutionId;
 
-    this.http.post('http://3.111.229.37:3000/solution/deleteSolution', { solutionId })
+    this.http.post('http://35.207.211.225:3000/solution/deleteSolution', { solutionId })
       .subscribe(response => {
         console.log(response);
         this.storeResponse = response;
@@ -1012,7 +1012,7 @@ debugger;
   valuesArray: any[] = [];
   TagsArray: any[] = [];
   getSolution() {
-    this.http.post('http://3.111.229.37:3000/solution/retrieveSolutions', {})
+    this.http.post('http://35.207.211.225:3000/solution/retrieveSolutions', {})
       .subscribe(response => {
         this.dumbb1 = response;
 
@@ -1332,7 +1332,7 @@ onInputChange(key: string,value: string){
 
    linkage(data: any){
     const solutionId=data.id;
-    this.http.post('http://3.111.229.37:3000/solution/linked', {solutionId})
+    this.http.post('http://35.207.211.225:3000/solution/linked', {solutionId})
     .subscribe(response => {
       this.linkagedata=response;
       this.empty();
